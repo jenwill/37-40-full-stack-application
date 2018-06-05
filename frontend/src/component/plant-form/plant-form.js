@@ -2,21 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from '../../utils/utils';
 import Modal from '../modal/modal';
-import './country-form.scss';
+import './plant-form.scss';
 
 const defaultState = {
-  countryName: '',
-  continent: '',
-  info: '',
+ commonName: '',
+  placement: '',
+  notes: '',
   editing: false,
 };
 
-class CountryForm extends React.Component {
+class PlantForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = this.props.country || defaultState;
-    autoBind.call(this, CountryForm);
+    this.state = this.props.plant || defaultState;
+    autoBind.call(this, PlantForm);
   }
 
   handleSubmit(event) {
@@ -44,46 +44,46 @@ class CountryForm extends React.Component {
     });
   }
   render() {
-    const buttonText = this.props.country ? 'Update' : 'Add';
+    const buttonText = this.props.plant ? 'Update' : 'Add';
 
     return (
-      <div className='country-block'>
-        <button onClick={this.handleShowModal}>Add a Country</button>
+      <div className='plant-block'>
+        <button onClick={this.handleShowModal}>Add a Plant</button>
       <Modal show={this.state.editing} handleClose={this.handleHideModal}>
       <form onSubmit={this.handleSubmit}
-      className='country-form'>
+      className='plant-form'>
         <input
           type='text'
-          name='countryName'
-          placeholder='Country Name'
-          value={this.state.countryName}
+          name='commonName'
+          placeholder='Plant Name'
+          value={this.state.plantName}
           onChange={this.handleChange}
         />
         <input
           type='text'
-          name='continent'
-          placeholder='Continent'
-          value={this.state.continent}
+          name='placement'
+          placeholder='Placement'
+          value={this.state.placement}
           onChange={this.handleChange}
         />
         <input
           type='text'
-          name='info'
-          placeholder='Info'
+          name='notes'
+          placeholder='Notes'
           value={this.state.info}
           onChange={this.handleChange}
         />
         <br/>
-        <button type="submit">{buttonText} Country</button>
+        <button type="submit">{buttonText} Plant</button>
       </form>
       </Modal>
       </div>
     );
   }
 }
-CountryForm.propTypes = {
-  country: PropTypes.object,
+PlantForm.propTypes = {
+  plant: PropTypes.object,
   onComplete: PropTypes.func,
 };
 
-export default CountryForm;
+export default PlantForm;

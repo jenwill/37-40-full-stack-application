@@ -1,19 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import * as countryActions from '../../action/country';
-import CountryForm from '../country-form/country-form';
-import Country from '../country/country';
+import * as plantActions from '../../action/plant';
+import PlantForm from '../plant-form/plant-form';
+import Plant from '../plant/plant';
 
 class Landing extends React.Component {
   render() {
-    const { countries, countryCreate } = this.props;
+    const { plants, plantCreate } = this.props;
     return (
       <div className='landing'>
-        <CountryForm onComplete={countryCreate}/>
+        <PlantForm onComplete={plantCreate}/>
         {
-          countries.map((currentCountry, i) =>
-            <Country country={currentCountry} key={i}/>)
+          plants.map((currentPlant, i) =>
+            <Plant plant={currentPlant} key={i}/>)
         }
       </div>
     );
@@ -21,19 +21,19 @@ class Landing extends React.Component {
 }
 
 Landing.propTypes = {
-  countries: PropTypes.array,
-  countryCreate: PropTypes.func,
+  plants: PropTypes.array,
+  plantCreate: PropTypes.func,
 };
 
 const mapStateToProps = (state) => {
   return {
-    countries: state.countries,
+    plants: state.plants,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    countryCreate: data => dispatch(countryActions.create(data)),
+    plantCreate: data => dispatch(plantActions.create(data)),
   };
 };
 

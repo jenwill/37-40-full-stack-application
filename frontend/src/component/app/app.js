@@ -9,7 +9,7 @@ export default class App extends React.Component {
         <BrowserRouter>
           <div>
             <header>
-              <h1>Countries of the World</h1>
+              <h1>Bloomio Plant Minder</h1>
             </header>
             <Route
               exact
