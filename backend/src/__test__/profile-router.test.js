@@ -197,7 +197,7 @@ describe('PROFILE SCHEMA', () => {
                 .send({
                   commonName: 'Fern',
                   placement: 'indoors',
-                  waterInterval: 1,
+                  waterInterval: -10,
                 })
                 .then(() => {
                   return superagent.get(`${apiURL}/profile/${resultMock.responseMock.profile._id}/needswater`)
@@ -237,7 +237,7 @@ describe('PROFILE SCHEMA', () => {
           profileToUpdate = profile;
           return superagent.put(`${apiURL}/profile/${profileToUpdate.profile._id}/avatar`)
             .set('Authorization', `Bearer ${profileToUpdate.accountSetMock.token}`)
-            .attach('pic', `${__dirname}/../assets/dog.jpg`)
+            .attach('pic', `${__dirname}/assets/dog.jpg`)
             .then((response) => {
               expect(response.status).toEqual(200);
               expect(response.body._id).toEqual(profileToUpdate.profile._id.toString());
