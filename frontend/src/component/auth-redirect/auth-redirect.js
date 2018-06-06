@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import * as routes from '../../routes';
-import profile from "../../../../backend/src/model/profile";
 
 class AuthRedirect extends React.Component {
   render() {
@@ -31,7 +30,7 @@ class AuthRedirect extends React.Component {
 
 AuthRedirect.propTypes = {
   token: PropTypes.string,
-  location: propTypes.object,
+  location: PropTypes.object,
 };
 
 const mapStateToProps = state => ({

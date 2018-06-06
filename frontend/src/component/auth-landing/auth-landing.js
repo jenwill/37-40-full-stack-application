@@ -32,26 +32,25 @@ class AuthLanding extends React.Component {
       .catch(console.error);
   }
 
-
   render() {
     const rootJSX = <div>
       <h2> Welcome to the app!</h2>
-      <Link to='/signup'>Sign up to our app</Link>
-      <Link to='/login'>Log in to our app</Link>
+      <Link to='/signup'>Sign up</Link>
+      <Link to='/login'>Log in</Link>
     </div>;
 
     const signupJSX = <div>
       <h2>Sign up!</h2>
       <AuthForm onComplete={this.handleSignup}/>
       <p> Already have an account? </p>
-      <Link to='/login'>Log in to our app</Link>
+      <Link to='/login'>Log in</Link>
     </div>;
 
     const loginJSX = <div>
       <h2>Log in!</h2>
       <AuthForm onComplete={this.handleLogin}/>
       <p> Do not have an account? </p>
-      <Link to='/signup'>Sign up to our app</Link>
+      <Link to='/signup'>Sign up</Link>
     </div>;
 
     const { location } = this.props;
