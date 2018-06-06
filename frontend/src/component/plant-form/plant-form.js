@@ -5,7 +5,7 @@ import Modal from '../modal/modal';
 import './plant-form.scss';
 
 const defaultState = {
- commonName: '',
+  commonName: '',
   placement: '',
   notes: '',
   editing: false,
