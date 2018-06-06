@@ -1,7 +1,10 @@
 require('dotenv').config();
 
+const { DefinePlugin } = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssPlugin = require('mini-css-extract-plugin');
+
+const production = process.env.NODE_ENV === 'production';
 
 const webpackConfig = module.exports = {};
 
@@ -15,14 +18,23 @@ webpackConfig.output = {
 
 webpackConfig.plugins = [
   new HtmlWebpackPlugin({
-    name: 'Jennifer\'s Budget Tracker App',
+    name: 'Jennifer\'s Bloomio Plant Minder',
   }),
-  new MiniCssPlugin({
-    filename: '[name].[hash].css',
+  new DefinePlugin({
+    API_URL: JSON.stringify(process.env.API_URL),
   }),
 ];
 
+if (production) {
+  webpackConfig.plugins.push(new MiniCssPlugin({
+    filename: '[name].[hash].css',
+  }));
+}
+
 webpackConfig.module = {};
+
+const finalLoader = production ? MiniCssPlugin.loader : 'style-loader';
+
 webpackConfig.module.rules = [
   {
     test: /\.(png|svg|jpg|gif)$/,
@@ -44,7 +56,7 @@ webpackConfig.module.rules = [
   {
     test: /\.scss$/,
     use: [
-      MiniCssPlugin.loader,
+      finalLoader,
       'css-loader',
       'sass-loader',
     ],

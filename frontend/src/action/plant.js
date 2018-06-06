@@ -1,13 +1,6 @@
-import uuid from 'uuid';
-
-const create = ({ commonName, placement, notes }) => ({
+const create = plant => ({
   type: 'PLANT_CREATE',
-  payload: {
-    commonName: commonName,
-    placement: placement,
-    notes: notes,
-    id: uuid(),
-  },
+  payload: plant,
 });
 
 const update = plant => ({
