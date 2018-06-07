@@ -7,9 +7,10 @@ import reporter from './lib/redux-reporter';
 
 import App from './component/app/app';
 import reducer from './reducer/main';
+import thunk from './lib/redux-thunk';
 import './styles/main.scss';
 
-const store = createStore(reducer, composeWithDevTools(applyMiddleware(reporter)));
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 
 const appContainer = document.createElement('div');
 document.body.appendChild(appContainer);

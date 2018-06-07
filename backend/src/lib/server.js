@@ -1,5 +1,6 @@
 'use strict';
 
+import cors from 'cors';
 import express from 'express';
 import mongoose from 'mongoose';
 import logger from './logger';
@@ -13,6 +14,10 @@ const app = express();
 let server = null;
 
 // routes will be app.use'd here
+app.use(cors({
+  origin: 'http://localhost:8080',
+  credentials: true,
+}));
 app.use(accountRouter);
 app.use(profileRouter);
 app.use(plantRouter);
