@@ -1,4 +1,4 @@
-Lab 37: Full-Stack Auth
+Lab 38: Full-Stack Token Management
 ===
 
 **Author:** Jennifer Piper

@@ -34,9 +34,10 @@ class AuthLanding extends React.Component {
 
   render() {
     const rootJSX = <div>
-      <h2> Welcome to the app!</h2>
-      <Link to='/signup'>Sign up</Link>
-      <Link to='/login'>Log in</Link>
+      <h2>Welcome to Bloomio</h2>
+      <p>Please log in or sign up to get started:</p>
+      <Link to='/signup'>Sign up&nbsp;  </Link>
+      <Link to='/login'>&nbsp;Log in</Link>
     </div>;
 
     const signupJSX = <div>

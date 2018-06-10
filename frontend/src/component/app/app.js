@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import AuthRedirect from '../auth-redirect/auth-redirect';
 import AuthLanding from '../auth-landing/auth-landing';
 import Dashboard from '../dashboard/dashboard';
+import Header from '../header/header';
 
 export default class App extends React.Component {
   render() {
@@ -10,9 +11,7 @@ export default class App extends React.Component {
       <div className="app">
         <BrowserRouter>
           <div>
-            <header>
-              <h1>Bloomio Plant Minder</h1>
-            </header>
+            <Header />
             <Route path='*' component={AuthRedirect}/>
             <Route exact path='/' component={AuthLanding}/>
             <Route exact path='/signup' component={AuthLanding}/>
