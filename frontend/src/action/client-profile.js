@@ -17,8 +17,6 @@ const createRequest = profile => (store) => {
     .then((response) => {
       return store.dispatch(setProfile(response.body.profile));
       // TODO update this to go with Bloomio back-end
-      // Here we know that we want response.body.profile because that's
-      // what the back-end of this app sent. Know your back-end, so you know what to use here.
     });
 };
 
