@@ -1,4 +1,4 @@
-Lab 38: Full-Stack Token Management
+Lab 39: Form Validation
 ===
 
 **Author:** Jennifer Piper
