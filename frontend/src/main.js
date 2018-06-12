@@ -3,7 +3,6 @@ import { createStore, applyMiddleware } from 'redux';
 import ReactDom from 'react-dom';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import reporter from './lib/redux-reporter';
 
 import App from './component/app/app';
 import reducer from './reducer/main';

@@ -36,7 +36,7 @@ const updateRequest = profile => (store) => {
     });
 };
 
-const fetchRequest = () => (store) => {
+const fetchRequest = profile => (store) => {
   const { token } = store.getState();
 
   return superagent.get(`${API_URL}${routes.PROFILE_ROUTE}/${profile._id}`)

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from '../../utils/utils';
-// import Modal from '../modal/modal';
 
 const defaultState = {
   firstName: '',

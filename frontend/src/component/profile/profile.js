@@ -6,7 +6,7 @@ import * as clientProfileActions from '../../action/client-profile';
 import * as routes from '../../routes';
 
 import autoBind from '../../utils/utils';
-import ProfileForm from '../profile-form/profile-form'
+import ProfileForm from '../profile-form/profile-form';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -61,7 +61,7 @@ class Profile extends React.Component {
     }
     return (
       <div>
-        <h2>PROFILE</h2>
+        <h2>Create a Profile</h2>
         {profile ? JSXProfile : <ProfileForm onComplete={this.handleCreate}/>
         }
       </div>
