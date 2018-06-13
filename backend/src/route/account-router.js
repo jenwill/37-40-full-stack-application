@@ -24,7 +24,8 @@ accountRouter.post('/signup', jsonParser, (request, response, next) => {
     })
     .then((token) => {
       logger.log('logger.INFO', 'AUTH - returning a 200 code and a token.');
-      return response.json({ token });
+      response.cookie('token', token);
+      return response.send(token);
     })
     .catch(next);
 });
