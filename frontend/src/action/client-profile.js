@@ -15,8 +15,7 @@ const createRequest = profile => (store) => {
     .set('Content-Type', 'application/json')
     .send(profile)
     .then((response) => {
-      return store.dispatch(setProfile(response.body.profile));
-      // TODO update this to go with Bloomio back-end
+      return store.dispatch(setProfile(response.body._id));
     });
 };
 
@@ -29,8 +28,7 @@ const updateRequest = profile => (store) => {
     .set('Content-Type', 'application/json')
     .send(profile)
     .then((response) => {
-      return store.dispatch(setProfile(response.body.profile));
-      // TODO update this to go with Bloomio back-end
+      return store.dispatch(setProfile(response.body._id));
     });
 };
 
@@ -41,8 +39,7 @@ const fetchRequest = profile => (store) => {
   return superagent.get(`${API_URL}${routes.PROFILE_ROUTE}/${profile._id}`)
     .set('Authorization', `Bearer ${parsedToken.token}`)
     .then((response) => {
-      return store.dispatch(setProfile(response.body.profile));
-      // TODO update this to go with Bloomio back-end
+      return store.dispatch(setProfile(response.body._id));
     });
 };
 

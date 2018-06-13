@@ -61,7 +61,7 @@ class Profile extends React.Component {
     }
     return (
       <div>
-        <h2>Create a Profile</h2>
+        <h2>Profile</h2>
         {profile ? JSXProfile : <ProfileForm onComplete={this.handleCreate}/>
         }
       </div>
