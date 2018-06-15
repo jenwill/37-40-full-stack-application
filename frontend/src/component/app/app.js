@@ -13,8 +13,8 @@ import * as clientProfileActions from '../../action/client-profile';
 class App extends React.Component {
   componentDidMount() {
     if (this.props.loggedIn) {
-      this.props.pFetchClientProfile()
-        .catch(console.error);
+    //  this.props.pFetchClientProfile()
+    //    .catch(console.error);
     }
   }
 
