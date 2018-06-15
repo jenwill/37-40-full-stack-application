@@ -30,13 +30,30 @@ const updateRequest = profile => (store) => {
     });
 };
 
-const fetchRequest = profile => (store) => {
-  const { token } = store.getState();
+//
+// const fetchRequest = () => (store) => {
+//   const { token } = store.getState();
+//   console.log('PROFILE FETCH REQUEST token: ', token);
+//   return superagent.get(`${API_URL}${routes.PROFILE_ROUTE}/me`)
+//     .set('Authorization', `Bearer ${token}`)
+//     .then((response) => {
+//       console.log('PROFILE FETCH REQUEST response.body: ', response.body);
+//       // return store.dispatch(setProfile(response.body._id));
+//     });
+// };
 
-  return superagent.get(`${API_URL}${routes.PROFILE_ROUTE}/${profile._id}`)
+// .then(response => console.log('PROFILE FETCH REQUEST response.body', response.body))
+
+const fetchRequest = () => (store) => {
+  const { token } = store.getState();
+  return superagent.get(`${API_URL}${routes.PROFILE_ROUTE}/me`)
     .set('Authorization', `Bearer ${token}`)
     .then((response) => {
-      return store.dispatch(setProfile(response.body._id));
+      console.log('PROFILE FETCH REQUEST response.body', response.body);
+      return response;
+    })
+    .then((response) => {
+      return store.dispatch(setProfile(response.body));
     });
 };
 

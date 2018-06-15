@@ -13,8 +13,9 @@ import * as clientProfileActions from '../../action/client-profile';
 class App extends React.Component {
   componentDidMount() {
     if (this.props.loggedIn) {
-    //  this.props.pFetchClientProfile()
-    //    .catch(console.error);
+      console.log('COMPONENT DID MOUNT, LOGGED IN');
+      this.props.pFetchClientProfile()
+        .catch(console.error);
     }
   }
 
