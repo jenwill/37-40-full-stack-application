@@ -9,12 +9,14 @@ class Game extends React.Component {
   componentDidMount() {
     const { canvas } = this.refs;
     const ctx = canvas.getContext('2d');
+    const numberOfDoodads = 5;
 
-    ctx.fillStyle = 'blue';
-    ctx.fillRect(10, 10, 50, 50);
-
-    ctx.fillStyle = 'magenta';
-    ctx.fillRect(110, 110, 50, 50);
+    for (let i = 0; i < numberOfDoodads; i++) {
+      let xCoord = Math.random() * 510;
+      let yCoord = Math.random() * 510;
+      ctx.fillStyle = 'blue';
+      ctx.fillRect(xCoord, yCoord, 50, 50);
+    }
   }
 
   handleClick(event) {
