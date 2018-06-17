@@ -39,6 +39,8 @@ class Profile extends React.Component {
     let JSXDisplay = null;
     let JSXProfile = null;
 
+    console.log('PROFILE.JS RENDER, this.props:', this.props);
+
     if (profile) {
       JSXEditing =
         <div>
@@ -47,15 +49,12 @@ class Profile extends React.Component {
         </div>;
       JSXDisplay =
         <div>
-          <p>firstName: {profile.firstName}</p>
-          <p>location: {profile.location}</p>
-
           <button onClick={() => this.setState({ editing: true })}>Edit</button>
         </div>;
       JSXProfile =
         <div>
-          <h2>firstName: {profile.firstName}</h2>
-          <h3>location: {profile.location}</h3>
+          <h3>First Name: {profile.firstName}</h3>
+          <h3>Location: {profile.location}</h3>
           {this.state.editing ? JSXEditing : JSXDisplay}
         </div>;
     }

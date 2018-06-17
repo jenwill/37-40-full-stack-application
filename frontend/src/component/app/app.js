@@ -15,11 +15,15 @@ class App extends React.Component {
     if (this.props.loggedIn) {
       console.log('COMPONENT DID MOUNT, LOGGED IN');
       this.props.pFetchClientProfile()
+        .then((response) => {
+          console.log('COMPONENT DID MOUNT response: ', response);
+        })
         .catch(console.error);
     }
   }
 
   render() {
+    console.log('APP RENDER props: ', this.props);
     return (
       <div className="app">
         <BrowserRouter>

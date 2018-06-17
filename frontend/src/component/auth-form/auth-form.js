@@ -16,8 +16,6 @@ const emptyState = {
   passwordDirty: false,
   passwordError: 'Password is Required',
 };
-const MIN_NAME_LENGTH = 6;
-const MIN_PASSWORD_LENGTH = 6;
 
 class AuthForm extends React.Component {
   constructor(props) {

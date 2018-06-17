@@ -6,10 +6,10 @@ const validateProfile = (profile) => {
     throw new Error(D23_001);
   }
   const {
-    planterbox, _id, firstName, location
+    planterbox, _id, firstName, location, account,
   } = profile;
 
-  if (!firstName) {
+  if (!firstName || !planterbox || !_id || !location || !account) {
     throw new Error(D23_002);
   }
   return undefined;
@@ -20,6 +20,7 @@ export default (state = null, action) => {
 
   switch (type) {
     case 'CLIENT_PROFILE_SET':
+      console.log('CLIENT PROFILE SET payload:', payload);
       // validateProfile(payload);
       return payload;
     case 'TOKEN_REMOVE':
