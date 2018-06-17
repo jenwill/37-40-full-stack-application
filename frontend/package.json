@@ -1,15 +1,11 @@
 {
-  "name": "31-34-budget-tracker-app",
+  "name": "frontend",
   "version": "1.0.0",
-  "description": "Lab 31: Budget Tracker ===",
+  "description": "",
   "main": "webpack.common.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jenwill/31-34-budget-tracker-app.git"
-  },
   "scripts": {
     "watch": "webpack-dev-server --config webpack.dev.js",
-    "test": "jest",
+    "test": "jest -i --coverage",
     "lint": "eslint ."
   },
   "jest": {
@@ -60,9 +56,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jenwill/31-34-budget-tracker-app/issues"
-  },
-  "homepage": "https://github.com/jenwill/31-34-budget-tracker-app#readme"
+  "license": "ISC"
 }
