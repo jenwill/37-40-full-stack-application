@@ -14,7 +14,7 @@ const createRequest = profile => (store) => {
     .set('Content-Type', 'application/json')
     .send(profile)
     .then((response) => {
-      return store.dispatch(setProfile(response.body._id));
+      return store.dispatch(setProfile(response.body));
     });
 };
 
@@ -26,7 +26,7 @@ const updateRequest = profile => (store) => {
     .set('Content-Type', 'application/json')
     .send(profile)
     .then((response) => {
-      return store.dispatch(setProfile(response.body._id));
+      return store.dispatch(setProfile(response.body));
     });
 };
 

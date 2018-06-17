@@ -5,7 +5,7 @@ class Dashboard extends React.Component {
     return (
       <div className='dashboard'>
         <h1>Dashboard</h1>
-        <h2>Only visible if logged in.</h2>
+        <h2>You are logged in.</h2>
       </div>
     );
   }

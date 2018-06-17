@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import * as clientProfileActions from '../../action/client-profile';
-import * as routes from '../../routes';
 
 import autoBind from '../../utils/utils';
 import ProfileForm from '../profile-form/profile-form';
@@ -18,10 +17,7 @@ class Profile extends React.Component {
   }
 
   handleCreate(profile) {
-    this.props.profileCreate(profile)
-      .then(() => {
-        this.props.history.push(routes.DASHBOARD_ROUTE);
-      });
+    this.props.profileCreate(profile);
   }
 
   handleUpdate(profile) {
@@ -44,6 +40,7 @@ class Profile extends React.Component {
     if (profile) {
       JSXEditing =
         <div>
+          <h2>Edit Your Profile</h2>
           <ProfileForm profile={profile} onComplete={this.handleUpdate}/>
           <button onClick={() => this.setState({ editing: false })}>Cancel</button>
         </div>;
@@ -53,6 +50,7 @@ class Profile extends React.Component {
         </div>;
       JSXProfile =
         <div>
+          <h2>Your Profile</h2>
           <h3>First Name: {profile.firstName}</h3>
           <h3>Location: {profile.location}</h3>
           {this.state.editing ? JSXEditing : JSXDisplay}
@@ -60,8 +58,11 @@ class Profile extends React.Component {
     }
     return (
       <div>
-        <h2>Profile</h2>
-        {profile ? JSXProfile : <ProfileForm onComplete={this.handleCreate}/>
+        {profile ? JSXProfile :
+          <div>
+          <h2>Create a Profile</h2>
+          <ProfileForm onComplete={this.handleCreate}/>
+          </div>
         }
       </div>
     );
