@@ -2,7 +2,7 @@ import superagent from 'superagent';
 import * as routes from '../routes';
 
 const setProfile = profile => ({
-  type: 'CLENT_PROFILE_SET',
+  type: 'CLIENT_PROFILE_SET',
   payload: profile,
 });
 
@@ -14,7 +14,7 @@ const createRequest = profile => (store) => {
     .set('Content-Type', 'application/json')
     .send(profile)
     .then((response) => {
-      return store.dispatch(setProfile(response.body._id));
+      return store.dispatch(setProfile(response.body));
     });
 };
 
@@ -26,30 +26,16 @@ const updateRequest = profile => (store) => {
     .set('Content-Type', 'application/json')
     .send(profile)
     .then((response) => {
-      return store.dispatch(setProfile(response.body._id));
+      return store.dispatch(setProfile(response.body));
     });
 };
 
-//
-// const fetchRequest = () => (store) => {
-//   const { token } = store.getState();
-//   console.log('PROFILE FETCH REQUEST token: ', token);
-//   return superagent.get(`${API_URL}${routes.PROFILE_ROUTE}/me`)
-//     .set('Authorization', `Bearer ${token}`)
-//     .then((response) => {
-//       console.log('PROFILE FETCH REQUEST response.body: ', response.body);
-//       // return store.dispatch(setProfile(response.body._id));
-//     });
-// };
-
-// .then(response => console.log('PROFILE FETCH REQUEST response.body', response.body))
 
 const fetchRequest = () => (store) => {
   const { token } = store.getState();
   return superagent.get(`${API_URL}${routes.PROFILE_ROUTE}/me`)
     .set('Authorization', `Bearer ${token}`)
     .then((response) => {
-      console.log('PROFILE FETCH REQUEST response.body', response.body);
       return response;
     })
     .then((response) => {
