@@ -20,7 +20,6 @@ export default (state = null, action) => {
 
   switch (type) {
     case 'CLIENT_PROFILE_SET':
-      console.log('CLIENT PROFILE SET payload:', payload);
       validateProfile(payload);
       return payload;
     case 'TOKEN_REMOVE':

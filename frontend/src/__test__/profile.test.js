@@ -18,8 +18,6 @@ describe('Profile testing', () => {
     const mockStore = configureStore([]);
     const mountedProfile = mount(<Provider store={mockStore(initialState)}><Profile/></Provider>);
 
-    console.log(mountedProfile.html());
-
     expect(mountedProfile.find('ProfileForm')).toBeTruthy();
   });
   test('Profile should match initialState', () => {

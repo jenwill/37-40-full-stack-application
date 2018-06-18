@@ -35,8 +35,6 @@ class Profile extends React.Component {
     let JSXDisplay = null;
     let JSXProfile = null;
 
-    console.log('PROFILE.JS RENDER, this.props:', this.props);
-
     if (profile) {
       JSXEditing =
         <div>

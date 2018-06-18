@@ -36,7 +36,6 @@ const fetchRequest = () => (store) => {
   return superagent.get(`${API_URL}${routes.PROFILE_ROUTE}/me`)
     .set('Authorization', `Bearer ${token}`)
     .then((response) => {
-      console.log('PROFILE FETCH REQUEST response.body', response.body);
       return response;
     })
     .then((response) => {
